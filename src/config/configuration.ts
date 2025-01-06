@@ -14,5 +14,8 @@ export default () => ({
     },
     environment: {
         port: process.env.PORT
-    }
+    },
+    allowed: {
+        origin: process.env.ALLOWED_ORIGIN,
+    },
 });
