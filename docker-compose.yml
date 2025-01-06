@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  portfolio_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./src:/app/src
+    networks:
+      - portfolio
+
+# before first run -> docker network create portfolio
+networks:
+  portfolio:
+    external: true
