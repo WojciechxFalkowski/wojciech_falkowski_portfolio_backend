@@ -8,6 +8,13 @@ async function bootstrap() {
 
   const port = configService.get<number>('environment.port');
 
+  const allowedOrigin = configService.get<string>('allowed.origin');
+
+  app.enableCors({
+    origin: allowedOrigin,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  });
+
   await app.listen(port);
 }
 bootstrap();
