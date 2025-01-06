@@ -9,7 +9,7 @@ export class EmailService {
 
     constructor(private configService: ConfigService) { }
 
-    async sendMail(email: string, phone: string, message: string): Promise<void> {
+    async sendMail(email: string, name: string, message: string): Promise<void> {
         const serviceType = SERVICE_TYPES.gmail;
 
         if (!serviceType) {
@@ -32,7 +32,7 @@ export class EmailService {
             from: email, // adres nadawcy
             to: this.configService.get('email.username'), // lista odbiorców
             subject: 'Wiadomość z formularza kontaktowego', // temat
-            text: `Od: ${email}\nNumer telefonu: ${phone}\nWiadomość: ${message}`, // treść wiadomości
+            text: `Od: ${email}\nImię: ${name}\nWiadomość: ${message}`, // treść wiadomości
             // html: '<b>Witaj</b>'
         };
 
