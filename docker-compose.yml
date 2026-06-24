@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: portfolio
+    env_file:
+      - .env
     ports:
       - ${PORT}:${PORT}
     volumes:
